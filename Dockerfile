@@ -15,4 +15,5 @@ RUN npm run build
 
 #the builder must be replaced with 0 in AWS
 FROM nginx
+EXPOSE 80
 COPY --from=builder /home/node/app/build /usr/share/nginx/html
