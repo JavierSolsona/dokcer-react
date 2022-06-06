@@ -1,0 +1,23 @@
+version: '3'
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - '3001:3000'
+    volumes:
+      # This volume made the node module folder not be mapped to the host
+      # when there is not : in the volume that folder not be mapped to the host
+      - /home/node/app/node_modules
+      - .:/home/node/app
+  test:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /home/node/app/node_modules
+      - .:/home/node/app
+    command: ["npm", "run", "test"]
+    
+  
