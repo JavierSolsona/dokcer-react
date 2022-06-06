@@ -1,5 +1,5 @@
 #In AWS the as nuilder must be eliminate
-FROM node:alpine as builder
+FROM node:16-alpine as builder
 
 USER node
 
